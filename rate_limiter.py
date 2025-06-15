@@ -41,6 +41,7 @@ def is_request_allowed( params : InIsReqAllowed ) -> bool:
   # If the deque is not full, add the request time.
   if( len_rate_deque < max_requests ):
     rate_deque.append(req_time_ms)
+    sort_deque(rate_deque) # Requirement: Timestamp may not be in increasing order.
     if( len_rate_deque + 1 >= params.unalloc_threshold ): 
       params.unalloc_candidates[client_id] = req_time_ms
     return True
@@ -49,6 +50,7 @@ def is_request_allowed( params : InIsReqAllowed ) -> bool:
     in_window: float = req_time_ms - params.window_duration_ms
     if( rate_deque[0] < in_window ):
       rate_deque.append(req_time_ms)
+      sort_deque(rate_deque) # Requirement: Timestamp may not be in increasing order.
       return True
     else:
       return False
@@ -63,6 +65,19 @@ def free_inactive_clients(
     if unalloc_candidates[client_id] <= clear_beq_time_ms:
       unalloc_candidates.pop(client_id, None)
       rate_mapper.pop(client_id, None)
+      
+def sort_deque( dq: deque ) -> deque:
+  """We only need to sort the last element in the deque if it is smaller than the previous one"""
+  idx = len(dq) - 1
+  if idx < 1: 
+    return dq
+  
+  last = dq[idx]
+  while idx and last < dq[idx - 1]:
+    dq[idx], dq[idx - 1] = dq[idx - 1], last
+    idx -= 1
+  return dq
+  
 
 ######################################################################
 

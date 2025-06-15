@@ -183,6 +183,36 @@ class TestRateLimiter(unittest.TestCase):
     
     self.assertIn(client_b, uc)
     self.assertNotIn(client_a, uc)
+    
+  def test_sort_deque(self):
+    """Test sorting of deque"""
+    
+    # Must return same (is) deque object.
+    dq_orig = rl.deque([])
+    dq_ret = rl.sort_deque(dq_orig)
+    self.assertIs(dq_ret, dq_orig)
+    self.assertEqual(len(dq_ret), 0)
+
+    # Only one element, skip sorting.
+    dq_single = rl.deque([1])
+    self.assertEqual(rl.sort_deque(dq_single.copy()), dq_single)
+    
+    # Order should be preserved.
+    dq_sorted_a = rl.deque([1, 2, 3, 4])
+    dq_sorted_b = rl.sort_deque(rl.deque([1, 2, 3, 4]))
+    self.assertEqual(dq_sorted_a, dq_sorted_b)
+    
+    # Order changed (A)
+    dq_unsorted = rl.deque([1, 3, 4, 2])
+    dq_sorted = rl.sort_deque(dq_unsorted.copy())
+    self.assertNotEqual(dq_sorted, dq_unsorted)
+    self.assertEqual(dq_sorted, rl.deque([1, 2, 3, 4]))
+    
+    # Order changed (B)
+    dq_unsorted = rl.deque([3, 4, 2])
+    dq_sorted = rl.sort_deque(dq_unsorted.copy())
+    self.assertNotEqual(dq_sorted, dq_unsorted)
+    self.assertEqual(dq_sorted, rl.deque([2, 3, 4]))
 
 ### Run the tests ###
 if __name__ == "__main__":
