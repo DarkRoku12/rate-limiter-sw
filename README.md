@@ -9,11 +9,11 @@ See [./features.md](features.md)
 ## Usage
 
 ### Installation 
-Only Python 12+ is required.
+Only Python 3.12+ is required.
 
 ### Running
 Just execute the `main.py` file, _examples_:
-- `python main.py` -> Interactive console stdin until EOF (ctrl+D / ctrl+Z, os dependant)
+- `python main.py` -> Interactive console stdin until EOF (`ctrl+d` / `ctrl+z`, os dependant)
 - `python main.py < input.txt` -> Buffers the sample file `input.txt` to the program.
 
 ### Tests

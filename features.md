@@ -46,4 +46,4 @@ as long as it is over the ALLOWED request's limit (10) under the given window, w
 
 [✅] Installation
 
--> Only requires Python 12+. 
+-> Only requires Python 3.12+. 
