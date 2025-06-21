@@ -2,7 +2,7 @@
 
 ## 1. Introduction
 
-Welcome to the Tephra Labs backend engineering take-home assessment! This exercise is designed to give you an opportunity to showcase your practical backend development skills in a scenario relevant to the challenges we tackle. We value your time and have designed this task accordingly.
+This exercise is designed to give you an opportunity to showcase your practical backend development skills in a scenario relevant to the challenges we tackle. We value your time and have designed this task accordingly.
 
 **Time Expectation & AI Tools:** This assessment is calibrated with modern development practices in mind. We estimate that building a robust solution without AI coding assistance (like GitHub Copilot, ChatGPT, etc.) might take approximately 2-3 hours of focused effort. However, if you effectively leverage AI tools for generating boilerplate code and initial scaffolding, you should aim to complete a functional solution in significantly less time, around 1 hour. The evaluation focuses on the quality, correctness, and design of your final submission, not strictly the time taken, but this calibration is intended to guide your effort. The goal is to assess your ability to integrate tools effectively while applying critical thinking to nuanced implementation, testing, and design.
 
@@ -45,16 +45,3 @@ The specific rate limiting requirement is: **Limit each unique client ID to a ma
 * **Languages:** Preferred languages are Go, TypeScript (runnable via `ts-node` or compiled to JavaScript runnable with Node.js), Rust, or Python. If you wish to use another language, please check with us first.
 * **Dependencies:** Use of the standard library is strongly preferred. Minimal external libraries are permissible only if essential for core functionality (e.g., high-precision time handling if the standard library is insufficient) and must be explicitly justified in the README. Web frameworks, databases, ORMs, message queues, or other significant external dependencies are strictly forbidden.
 * **Installation:** Any required non-standard dependencies must be easily installable using standard package managers (`go mod`, `npm`/`yarn`, `cargo`, `pip`) and documented clearly.
-
-## 7. Submission Guidelines
-
-* **Submission:** Please use the GitHub repository that is provided to you as we will use it to get your submission. 
-* **Contents:** The repository must contain all source code, any necessary build/configuration files, and the mandatory `README.md` file.
-* **README Contents:** Your `README.md` must include:
-  * Clear instructions on how to build and run the application.
-  * Instructions on how to execute the tests.
-  * A brief explanation of your chosen rate limiting algorithm and any significant design decisions made.
-  * List and justification for any external libraries used.
-* **Commit History:** Maintain a clear commit history showing your development process.
-
-Thank you for your time and effort. We look forward to reviewing your submission!
