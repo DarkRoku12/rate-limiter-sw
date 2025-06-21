@@ -29,7 +29,7 @@ Python.
 Why not? While I'd feel more fluent coding in other languages, like TypeScript, and considering the performance
 of pure Python (CPython) is not great. 
 
-The, why? This language has all the tools in the standard library to implement
+Then, why? This language has all the tools in the standard library to implement
 a good proof-of-concept rate-limiter, we can further extend it by implementing multi-threading, benchmarking
 memory usage / statistics and determine when it is a good time to free inactive client resources.
 
